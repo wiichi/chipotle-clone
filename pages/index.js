@@ -18,21 +18,28 @@ export default function Home() {
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico"/>
       </Head>
-      <header className="fixed z-10 bg-white w-full border-b-2 h-16 px-2 flex justify-between items-center bg-banner-video">
-          <div className="flex items-center">
-              <div>
-                Chipotle
-              </div>
+      <header className="fixed z-10 bg-white w-full border-b-2 h-16 lg:h-24 px-2 flex justify-between items-center bg-banner-video">
+          <div className="flex flex-grow-0 items-center">
+            <div>
+              Chipotle
+            </div>
 
-          <div className="text-yellow-700 px-4 flex items-center">
-            <img src="user-outline.svg"></img>
-            <Link href="/signin">SIGN IN</Link>
+            <div className="pl-4 w-32 flex items-center">
+              <img src="user-outline.svg"></img>
+              <Link href="/signin">SIGN IN</Link>
+            </div>
           </div>
-          </div>
-          <div className="self-center">
+
+          <div className="flex flex-grow items-center justify-center w-full">
+            <div className="hidden lg:block font-bold text-yellow-800 text-2xl px-2 uppercase">Order</div>
+            <div className="hidden lg:block font-bold text-yellow-800 text-2xl px-2 uppercase">Catering</div>
+            <div className="hidden lg:block font-bold text-yellow-800 text-2xl px-2 uppercase">Rewards</div>
+            <div className="hidden lg:block font-bold text-yellow-800 text-2xl px-2 uppercase">Our values</div>
+            <div className="hidden lg:block font-bold text-yellow-800 text-2xl px-2 uppercase">Nutrition</div>
             <input type="text" className="border-gray-400 border-2 rounded-full p-2"></input>
           </div>
-          <div>
+
+          <div className="flex flex-grow-0 justify-end">
             <button><img src="bag.svg"></img></button>
           </div>
       </header>
@@ -50,12 +57,12 @@ export default function Home() {
 
         </div>
 
-        <div className="border-b-2 bg-white py-5 lg:px-96 px-20 flex justify-between items-center">
+        <div className="border-b-2 bg-white py-5 px-20 flex flex-col md:flex-row justify-between items-center">
             <div className="text-xl font-bold text-yellow-900 uppercase">Join Chipotle Rewards. Unwrap Some Free Chipotle.</div>
             <div className="flex items-center">
-                <div className="transform hover:scale-90 border-2 transition-all 1s border-yellow-900 text-yellow-900 p-1 uppercase font-bold">Create an account</div>
-                <div className="px-3 font-bold">OR</div>
-                <div className="text-yellow-700 font-bold underline">
+                <div className="transform hover:scale-90 border-2 transition-all 1s border-yellow-900 text-yellow-900 p-1 uppercase font-bold w-48 text-center">Create an account</div>
+                <div className="font-bold mx-1 w-10 text-center">OR</div>
+                <div className="text-yellow-700 font-bold underline w-16 text-center">
                   <Link href="/signin">SIGN IN</Link>
                 </div>
             </div>

@@ -6,8 +6,15 @@ export default() => {
     const router = useRouter()
     const { meal } = router.query
     const [ burrito, setBurrito ] = useState({ name: 'burrito', ingredients: []});
+    const [ errormessage, setErrorMessage ] = useState({index: null, message: null})
     const operations = {
-        "PROTEIN OR VEGGIE": (p) => addIngredient(p)
+        "PROTEIN OR VEGGIE": (p, i) => addIngredient(p, i),
+        "RICE": (p, i) => addIngredient(p, i),
+        "BEANS": (p, i) => addIngredient(p, i),
+        "TOP THINGS OFF": (p, i) => addIngredient(p, i),
+        "OPTIONS": (p, i) => addIngredient(p, i),
+        "SIDE": (p, i) => addIngredient(p, i),
+        "DRINKS": (p, i) => addIngredient(p, i),
         }
     
     const por = [
@@ -67,7 +74,7 @@ export default() => {
         'DRINKS': drinks
     }
 
-    const addIngredient = (p) => {
+    const addIngredient = (p, i) => {
         let found = burrito.ingredients.find(e => e.name == p.name)
         console.log('found', found)
         console.log(p)
@@ -79,9 +86,12 @@ export default() => {
         if(p.name == "VEGGIE"){
             if(veggieSelected){
                 add()
+                return
             }
             if(burrito.ingredients.length > 0){
                 console.log('cant mix with veggies')
+                setErrorMessage({index: i, message: "You can't mix veggies"})
+                setTimeout(() => setErrorMessage(""), 1000)
                 return
             }
             add()
@@ -89,6 +99,8 @@ export default() => {
         } else {
             if(veggieSelected){
                 console.log("Cant mix with veggies")
+                setErrorMessage({index: i, message:"You can't mix veggies"})
+                setTimeout(() => setErrorMessage(""), 1000)
                 return
             }
             add()
@@ -133,17 +145,17 @@ export default() => {
                 <div className="text-yellow-900">Your choice of freshly grilled meat or sofritas wrapped in a warm flour torilla with rice, beans, or fajita veggies, and topped with guac, salsa, queso blanco, sour cream or cheese.</div>
             </div>
 
-            {Object.keys(ingredients).map(i => (<>     
-            <div className="bg-yellow-50 border-t-2 border-b-2 border-gray-200 lg:bg-transparent lg:w-3/6 lg:mx-auto lg:border-none py-5 font-bold text-yellow-900 text-xl">
-                {i}
+            {Object.keys(ingredients).map(ing => (<>     
+            <div className="bg-yellow-50 border-t-2 border-b-2 border-gray-200 lg:bg-transparent lg:w-4/6 lg:mx-auto lg:border-none py-5 font-bold text-yellow-900 text-xl">
+                {ing}
             </div>
-            <div className="lg:w-3/6 text-yellow-700 mx-auto px-5 sm:hidden md:hidden">
+            <div className="lg:w-5/6 text-yellow-700 mx-auto px-5 sm:hidden md:hidden">
                 Choose up to two
             </div>
 
-            <div className="grid lg:grid-cols-2 grid-cols-1 lg:gap-5 lg:w-3/6 mx-auto">
-            {ingredients[i].map(p => (
-                <div onClick={() => operations[i](p)} className={`${selected(p) && `bg-yellow-800 text-white scale-95`} transform transition-all 1s relative flex justify-between items-center border-2 border-gray-200 py-8`}>
+            <div className="grid lg:grid-cols-2 grid-cols-1 lg:gap-5 lg:w-4/6 mx-auto">
+            {ingredients[ing].map((p, i) => (
+                <div onClick={() => operations[ing](p,i)} className={`${selected(p) && `bg-yellow-800 text-white scale-95`} transform transition-all 1s relative flex justify-between items-center border-2 border-gray-200 py-8`}>
                     <div className="absolute">img</div>
                     <div className="ml-16 flex flex-col">
                         <div className={`${selected(p) ? 'text-white' : 'text-yellow-900'} font-bold`}>{p.name}</div>
@@ -153,6 +165,10 @@ export default() => {
                             <div>{p.cals} cal</div>
                         </div>
                     </div>
+                    
+                    {errormessage.message && errormessage.index == i && <div className="bg-yellow-800 p-2 text-white w-44 text-center lg:absolute lg:left-1/2 lg:-translate-x-2/4 transform">
+                        {errormessage.message}
+                    </div>}
                     <div className="transform rotate-90 text-4xl text-gray-500 h-5">...</div>
                 </div>
             ))} 
