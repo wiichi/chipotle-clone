@@ -18,13 +18,13 @@ export default function Home() {
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico"/>
       </Head>
-      <header className="fixed z-10 bg-white w-full border-b-2 h-16 lg:h-24 px-2 flex justify-between items-center bg-banner-video">
+      <header className="fixed z-20 bg-white w-full border-b-2 h-16 lg:h-24 px-2 flex justify-between items-center bg-banner-video">
           <div className="flex flex-grow-0 items-center">
-            <div>
-              Chipotle
+            <div className="flex items-center">
+              <img className="-16" src="/logo.svg"></img>
             </div>
 
-            <div className="pl-4 w-32 flex items-center">
+            <div className="ml-4 w-44 flex items-center">
               <img src="user-outline.svg"></img>
               <Link href="/signin">SIGN IN</Link>
             </div>
@@ -39,20 +39,27 @@ export default function Home() {
             <input type="text" className="border-gray-400 border-2 rounded-full p-2"></input>
           </div>
 
-          <div className="flex flex-grow-0 justify-end">
-            <button><img src="bag.svg"></img></button>
+          <div className="flex-grow-0">
+            <button><img className="" src="bag.svg"></img></button>
           </div>
       </header>
 
-      <main className="bg-yellow-800 flex-grow mt-16">
-        <div className="relative bg-yellow-800 h-96">
+      <main className="mt-16">
+        <div className="relative h-full">
 
-          <div className="text-white font-bold mx-auto flex flex-col items-center justify-center h-full">
-            <div className="py-5 text-lg">A whole new way to Chipotle paired with your favorite salsas and sides for pickup or delivery.</div>
-            <div className="w-3/6">
+          <div id="banner" className="relative h-96 lg:h-600 overflow-hidden bg-banner-video text-white font-bold mx-auto flex flex-col items-center justify-end">
+            <video id='video' className="absolute top-0 lg:top-8 z-0" autoPlay loop >
+              <source src="/ques.mp4" type="video/mp4"></source>
+            </video>
+            <div className="top-10 absolute bg-gradient-to-b from-transparent to-gray-900 w-full h-full">
+            
+            </div>
+            <div className="text-3xl text-center"><span className="underline">New</span> HAND-CRAFTED</div>
+            <div className="text-lg text-center z-10">A whole new way to Chipotle paired with your favorite salsas and sides for pickup or delivery.</div>
+            <div className="pt-4 w-3/6 z-10">
               <button className="p-5 transform hover:scale-95 transition-all 1s text-white font-bold text-lg bg-red-600 w-full">ORDER NOW</button>
             </div>
-            <div className="text-sm py-3">Not available to order in-restaurant.</div>
+            <div className="text-sm pb-9 pt-3 z-10 lg:mb-24">Not available to order in-restaurant.</div>
           </div>
 
         </div>
@@ -68,12 +75,12 @@ export default function Home() {
             </div>
         </div>
 
-            <div className="bg-white grid lg:grid-cols-3 grid-cols-1 gap-5 py-5 px-56">
+            <div className="bg-white grid lg:grid-cols-3 grid-cols-1 gap-y-36 py-14 px-56">
                 {meals.map(m => (
                   <Link href={`/Order${m.link}`}>
-                    <div className="h-36 flex lg:flex-col items-center transform hover:scale-90 justify-end">
-                        <div><img className="w-44" src={m.img}></img></div>
-                          <div className="font-bold text-yellow-700">{m.name}</div>
+                    <div className="h-36 flex lg:flex-col items-center transform hover:scale-90 justify-center">
+                        <div className="flex-shrink-0"><img className="w-72" src={m.img}></img></div>
+                          <div className="font-bold text-3xl text-yellow-700">{m.name}</div>
                       </div>
                   </Link>
                 ))}

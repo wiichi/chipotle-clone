@@ -16,53 +16,77 @@ export default() => {
         "SIDE": (p, i) => addIngredient(p, i),
         "DRINKS": (p, i) => addIngredient(p, i),
         }
+    const img = () => {
+        console.log(meal)
+        if(meal == 'Burrito'){
+            return '/burrito.png'
+        }
+        if(meal == 'Bowl'){
+            return '/bowl.jpg'
+        } 
+        if(meal == 'Lifestyle'){
+            return '/lifestyle.png'
+        }
+        if(meal == 'Quesadilla'){
+            return '/order.jpg'
+        }
+        if(meal == 'Salad'){
+            return '/salad.jpg'
+        }
+        if(meal == 'Tacos'){
+            return '/tacos.jpg'
+        }
+        if(meal == 'Sides'){
+            return '/chips-quac.jpg'
+        }
+    }
     
     const por = [
-        {name: 'CHICKEN', category: "", price: 7.35, cals: 180},
-        {name: 'STEAK', category: "", price: 8.35, cals: 150},
-        {name: 'BARBACOA', category: "", price: 8.35, cals: 170},
-        {name: 'CARNITAS', category: "", price: 7.85, cals: 210},
-        {name: 'SOFRITAS', category: "Plant-Based Protein", price: 7.35, cals: 150},
-        {name: 'VEGGIE', category: "Plant-Based Protein", price: 7.35, cals: 20},
+        {name: 'CHICKEN', category: "", price: 7.35, cals: 180, img: '/chicken.png'},
+        {name: 'STEAK', category: "", price: 8.35, cals: 150, img: '/steak.png'},
+        {name: 'BARBACOA', category: "", price: 8.35, cals: 170, img: "/barbacoa.png"},
+        {name: 'CARNITAS', category: "", price: 7.85, cals: 210, img: "/carnitas.png"},
+        {name: 'SOFRITAS', category: "Plant-Based Protein", price: 7.35, cals: 150, img: "/sofritas.png"},
+        {name: 'VEGGIE', category: "Plant-Based Protein", price: 7.35, cals: 20, img: "/veggie.png"},
     ]
 
     const rice = [
-        {name: 'WHITE RICE', price: 0, cals: 210},
-        {name: 'BROWN RICE', price: 0, cals: 210},
-        {name: 'CAULIFOWER RICE', price: 2, cals: 40},
+        {name: 'WHITE RICE', price: 0, cals: 210, img: '/wrice.png'},
+        {name: 'BROWN RICE', price: 0, cals: 210, img: '/brice.png'},
+        {name: 'CAULIFOWER RICE', price: 2, cals: 40, img: '/crice.png'},
     ]
 
     const beans = [
-        {name: 'BLACK BEANS', price: 0, cals: 130},
-        {name: 'PINTO BEANS', price: 0, cals: 130},
-        {name: 'NO BEANS', price: 0, cals: 0},
+        {name: 'BLACK BEANS', price: 0, cals: 130, img: '/bbeans.png'},
+        {name: 'PINTO BEANS', price: 0, cals: 130, img: '/pbeans.png'},
+        {name: 'NO BEANS', price: 0, cals: 0, img: ''},
     ]
 
     const ttf = [
-        {name: 'GUACAMOLE', price: 0, cals: 230},
-        {name: 'FRESH TOMATO SALSA', price: 0, cals: 25},
-        {name: 'ROASTED CHILI-CORN SALSA', price: 0, cals: 80},
-        {name: 'TOMATILLO-GREEN CHILI SALSA', price: 0, cals: 15},
-        {name: 'TOMATILLO-RED CHILI SALSA', price: 0, cals: 30},
-        {name: 'SOUR CREAM', price: 0, cals: 110},
-        {name: 'FAJITA VEGGIES', price: 0, cals: 110},
-        {name: 'ROMAINE LETTUCE', price: 0, cals: 5},
-        {name: 'QUESO BLANCO', price: 0, cals: 120},
+        {name: 'GUACAMOLE', price: 0, cals: 230, img: '/guacamole.png'},
+        {name: 'FRESH TOMATO SALSA', price: 0, cals: 25, img: '/freshtomatosalsa.png'},
+        {name: 'ROASTED CHILI-CORN SALSA', price: 0, cals: 80, img: '/roastedchilicornsalsa.png'},
+        {name: 'TOMATILLO-GREEN CHILI SALSA', price: 0, cals: 15, img: '/tomatillogreenchilisalsa.png'},
+        {name: 'TOMATILLO-RED CHILI SALSA', price: 0, cals: 30, img: '/tomatilloredchilisalsa.png'},
+        {name: 'SOUR CREAM', price: 0, cals: 110, img: '/sourcream.png'},
+        {name: 'FAJITA VEGGIES', price: 0, cals: 110, img: '/fajitaveggies.png'},
+        {name: 'ROMAINE LETTUCE', price: 0, cals: 5, img: '/romainelettuce.png'},
+        {name: 'QUESO BLANCO', price: 0, cals: 120, img: '/quesoblanco.png'},
     ]
 
     const options = [
-        {name: 'DOUBLE WRAP WITH TORTILLA', price: .25, cals: 320}
+        {name: 'DOUBLE WRAP WITH TORTILLA', price: .25, cals: 320, img: '/doublewrap.jpg'}
     ]
 
     const side = [
-        {name: 'CHIPS', price: 1.50, cals: 540},
-        {name: 'CHIPS & GUACAMOLE', price: 3.75, cals: 770},
+        {name: 'CHIPS', price: 1.50, cals: 540, img: '/chips.png'},
+        {name: 'CHIPS & GUACAMOLE', price: 3.75, cals: 770, img: '/chipsguacamole.png'},
     ]
 
     const drinks = [
-        {name: 'ORGANIC LEMONADE', price: 2.40, cals: 110},
-        {name: 'ORGANIC HIBISCUS LEMONADE', price: 2.40, cals: 110},
-        {name: 'ORGANIC MANDARIN AGUA FRESCA', price: 2.40, cals: 110},
+        {name: 'ORGANIC LEMONADE', price: 2.40, cals: 110, img: '/lemonade.png'},
+        {name: 'ORGANIC HIBISCUS LEMONADE', price: 2.40, cals: 110, img: '/hlemonade.png'},
+        {name: 'ORGANIC MANDARIN AGUA FRESCA', price: 2.40, cals: 110, img: '/aguafresca.png'},
     ]
     const ingredients = {
         "PROTEIN OR VEGGIE": por,
@@ -118,11 +142,11 @@ export default() => {
 
     return(
         <main>
-            <header className="fixed bg-white w-full z-10 h-16 px-2 flex justify-between items-center border-gray-300 border-b-2">
-            <div className="flex">
+            <header className="fixed bg-white w-full z-10 h-16 lg:h-24 px-2 flex justify-between items-center border-gray-300 border-b-2">
+            <div className="flex flex-grow items-center">
                 <div>
                     <Link href="/">
-                        Chipotle
+                      <img className="h-14" src="/logo.svg"></img>
                     </Link>
                 </div>
 
@@ -133,16 +157,18 @@ export default() => {
                     </Link>
                 </div>
             </div>
-            <div>
-                <button><img src="/bag.svg"></img></button>
+            <div className="flex-grow-0">
+                <button><img className="" src="/bag.svg"></img></button>
             </div>
             </header>
 
-            <div className="flex flex-col px-8 lg:border-b-2 lg:w-3/6 mx-auto py-10">
-                <div>Image</div>
-                <div className="text-yellow-900 text-md uppercase font-bold">Build Your</div>
-                <div className="text-yellow-900 pb-2 font-bold text-4xl">{meal}</div>
-                <div className="text-yellow-900">Your choice of freshly grilled meat or sofritas wrapped in a warm flour torilla with rice, beans, or fajita veggies, and topped with guac, salsa, queso blanco, sour cream or cheese.</div>
+            <div className="flex flex-col lg:flex-row px-8 lg:border-b-2 lg:w-4/6 mx-auto pt-40 pb-10">
+                <div className="w-2/3 mx-auto lg:mx-0"><img src={img()}></img></div>
+                <div>
+                    <div className="text-yellow-900 text-md uppercase font-bold">Build Your</div>
+                    <div className="text-yellow-900 pb-2 font-bold text-4xl">{meal}</div>
+                    <div className="text-yellow-900">Your choice of freshly grilled meat or sofritas wrapped in a warm flour torilla with rice, beans, or fajita veggies, and topped with guac, salsa, queso blanco, sour cream or cheese.</div>
+                </div>
             </div>
 
             {Object.keys(ingredients).map(ing => (<>     
@@ -155,8 +181,8 @@ export default() => {
 
             <div className="grid lg:grid-cols-2 grid-cols-1 lg:gap-5 lg:w-4/6 mx-auto">
             {ingredients[ing].map((p, i) => (
-                <div onClick={() => operations[ing](p,i)} className={`${selected(p) && `bg-yellow-800 text-white scale-95`} transform transition-all 1s relative flex justify-between items-center border-2 border-gray-200 py-8`}>
-                    <div className="absolute">img</div>
+                <div onClick={() => operations[ing](p,i)} className={`${selected(p) && `bg-yellow-800 text-white scale-95`} overflow-hidden transform transition-all 1s relative flex justify-between items-center border-2 border-gray-200 py-8`}>
+                    <div className="absolute transform -translate-x-10"><img className="h-28" src={p.img}></img></div>
                     <div className="ml-16 flex flex-col">
                         <div className={`${selected(p) ? 'text-white' : 'text-yellow-900'} font-bold`}>{p.name}</div>
                         <div className={`text-yellow-800`}>{p.category}</div>
@@ -175,13 +201,13 @@ export default() => {
             </div>
            </>))}
 
-           <div className="fixed w-full bottom-0 bg-gray-400 lg:py-5">
+           <div className="fixed w-full bottom-0 bg-gray-100 lg:py-5">
                <div className="lg:w-5/6 m-auto flex">
                 <div className="hidden lg:block flex-grow">
-                    <div>Your meal</div>
+                    <div className="uppercase font-bold">Your meal</div>
                     <div>Select a protein or veggie to get started</div>
                 </div>
-                <button className="sm:w-full sm:py-5 bg-yellow-800 lg:w-1/3 text-white font-bold text-lg">Add to cart</button>
+                <button className="sm:w-full sm:py-5 bg-yellow-800 lg:w-1/3 text-white font-bold text-lg uppercase">Add to cart</button>
                </div>
            </div>
         </main>

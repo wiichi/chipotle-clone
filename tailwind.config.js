@@ -3,8 +3,11 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
-      backgroundImage: theme => ({
+      backgroundImage: {
         'banner-video': "url('/ques.mp4')"
+      },
+      height: theme => ({
+        "600": "600px"
       })
     },
   },
