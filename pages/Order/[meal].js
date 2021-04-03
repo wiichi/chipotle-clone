@@ -2,7 +2,18 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 
+const meals = [
+    {name: "BURRITO", link: '/Burrito', img: "/burrito.png"},
+    {name: "BURRITO BOWL", link: '/Bowl', img: "/bowl.jpg"},
+    {name: "LIFESTYLE BOWL", link: '/Lifestyle', img: "/lifestyle.png"},
+    {name: "QUESADILLA", link: '/Quesadilla', img: "/order.jpg"},
+    {name: "SALAD", link: '/Salad', img: "/salad.jpg"},
+    {name: "TACOS", link: '/Tacos', img: "/tacos.jpg"},
+    {name: "SIDES & DRINKS", link: '/Sides', img: "/chips-quac.jpg"},
+  ]
+
 export default() => {
+    console.log(meals.map(m => m.link.split('/')[1]))
     const router = useRouter()
     const { meal } = router.query
     const [ burrito, setBurrito ] = useState({ name: 'burrito', ingredients: []});
@@ -212,4 +223,21 @@ export default() => {
            </div>
         </main>
     )
+}
+
+export async function getStaticPaths(){
+    return {
+        paths: meals.map(m => {
+            return {
+                params: { meal: m.link.split('/')[1] }
+            }
+        }),
+        fallback: false
+    }
+}
+
+export async function getStaticProps(){
+    return {
+        props: {}
+    }
 }

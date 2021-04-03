@@ -1,13 +1,16 @@
 {
+  "homepage": "http://wiichi/github.io/chipotle-clone",
   "name": "chipotle",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "deploy": "gh-pages -d out"
   },
   "dependencies": {
+    "gh-pages": "^3.1.0",
     "next": "10.0.9",
     "react": "17.0.1",
     "react-dom": "17.0.1"
